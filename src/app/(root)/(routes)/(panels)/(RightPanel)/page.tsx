@@ -21,7 +21,7 @@ export const RightPanel = () => {
       </div>
 
       <div className="flex justify-start my-10">
-        <h1 className="font-bold">Today's Highlights</h1>
+        <h1 className="font-bold">Today&apos;s Highlights</h1>
       </div>
 
       <div className="flex gap-5 flex-wrap justify-center">

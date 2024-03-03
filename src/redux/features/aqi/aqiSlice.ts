@@ -3,14 +3,14 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 
 interface AqiState {
-    aqi: string; 
+    aqi: string | null; 
     status: 'idle' | 'loading' | 'succeeded' | 'failed';
     error: string | null;
  
   }
   
   const initialState: AqiState = {
-    aqi: '',
+    aqi: null,
     status: 'idle',
     error: null,
   };
@@ -57,7 +57,7 @@ const aqiSlice = createSlice({
       })
       .addCase(fetchAQI.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.aqi = action.payload;
+        state.aqi = action.payload ?? null;
       })
       .addCase(fetchAQI.rejected, (state, action) => {
         state.status = 'failed';

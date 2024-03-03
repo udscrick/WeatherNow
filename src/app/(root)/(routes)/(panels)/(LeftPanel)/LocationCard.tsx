@@ -1,12 +1,12 @@
 "use client"
+import { useAppSelector } from '@/redux/hooks'
 import { Image } from '@/types/Image'
 import { Location } from '@/types/Location'
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
 
 export const LocationCard = () => {
-    const imageData:any = useSelector((state:any)=>state.image.data)
-    const location:Location = useSelector((state:any)=>state.location.selectedLocation)
+    const imageData:any = useAppSelector((state:any)=>state.image.data)
+    const location:Location = useAppSelector((state:any)=>state.location.selectedLocation)
     const [cityImage, setCityImage] = useState('')
     const [cityName, setCityName] = useState('')
     useEffect(()=>{

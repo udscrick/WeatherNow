@@ -1,6 +1,6 @@
 "use client"
+import { useAppSelector } from "@/redux/hooks";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 
 const UvIndexCard = () => {
     // Increase the radius for a larger gauge
@@ -14,7 +14,7 @@ const UvIndexCard = () => {
     const circumference = radius * Math.PI;
     const offset = ((maxUvIndex - uvIndex) / maxUvIndex) * circumference;
 
-    const currentWeather = useSelector((state)=>state.weather.data)
+    const currentWeather = useAppSelector((state)=>state.weather.data)
     useEffect(()=>{
         if(currentWeather)
         {

@@ -1,11 +1,11 @@
 "use client"
 import { getDayOfWeek } from '@/app/utilities/getDayOfWeek'
+import { useAppSelector } from '@/redux/hooks'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
 
 export const DayCard = ({dayIndex}:{dayIndex:number}) => {
-const weatherInfo = useSelector((state)=>state.weather.data )
+const weatherInfo = useAppSelector((state)=>state.weather.data )
 const [day, setDay] =useState('')
 const [high, setHigh] = useState(0)
 const [low, setLow] = useState(0)

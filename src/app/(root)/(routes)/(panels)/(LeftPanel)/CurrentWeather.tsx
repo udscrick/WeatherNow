@@ -1,12 +1,12 @@
 "use client"
+import { useAppSelector } from '@/redux/hooks'
 import Image from 'next/image'
 import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
 
 
 export const CurrentWeather = () => {
-    const weather = useSelector((state)=>state.weather.data)
-    const tempUnit = useSelector((state)=>state.weather.temperatureUnit)
+    const weather = useAppSelector((state)=>state.weather.data)
+    const tempUnit = useAppSelector((state)=>state.weather.temperatureUnit)
 
   return (
    

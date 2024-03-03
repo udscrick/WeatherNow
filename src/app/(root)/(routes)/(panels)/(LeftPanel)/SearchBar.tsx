@@ -2,20 +2,20 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { fetchLocation, setSelectedLocation } from "@/redux/features/location/locationSlice";
 import { AppDispatch } from "@/redux/store";
 import { Location } from "@/types/Location";
+import { useAppDispatch } from "@/redux/hooks";
 
 // src/components/common/SearchBar.jsx
 
 const SearchBar = () => {
     const [searchedLocation, setSearchedLocation] = useState('');
     const [showResults, setShowResults] = useState(false);
-    const dispatch = useDispatch<AppDispatch>();
+    const dispatch = useAppDispatch();
     const [data, setData] = useState([]);
 
-    const handleInput = async(e) => {
+    const handleInput = async(e:  React.ChangeEvent<any>) => {
         const response = await dispatch(fetchLocation(e.target.value))
         if(response.payload){
             setSearchedLocation(e.target.value); 
