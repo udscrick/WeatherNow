@@ -1,8 +1,6 @@
-// src/components/CurrentWeather/CurrentWeather.tsx
 
 import React, { useEffect } from "react";
 import SearchBar from "./SearchBar";
-import Image from "next/image";
 import { LocationCard } from "./LocationCard";
 import { CurrentWeather } from "./CurrentWeather";
 

@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { fetchLocation, setSelectedLocation } from "@/redux/features/location/locationSlice";
-import { AppDispatch } from "@/redux/store";
 import { Location } from "@/types/Location";
 import { useAppDispatch } from "@/redux/hooks";
 

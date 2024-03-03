@@ -1,6 +1,5 @@
 "use client"
 import { useAppSelector } from '@/redux/hooks'
-import { Image } from '@/types/Image'
 import { Location } from '@/types/Location'
 import React, { useEffect, useState } from 'react'
 

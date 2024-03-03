@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import { DayCard } from "./weekly/DayCard";
 import UvIndexCard from "./daily-cards/UVIndexCard";
