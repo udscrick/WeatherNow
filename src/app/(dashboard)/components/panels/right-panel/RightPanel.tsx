@@ -5,7 +5,7 @@ import WeatherStatsCard from "./daily-cards/WeatherStatsCard";
 import { SunriseSunsetCard } from "./daily-cards/SunriseSunsetCard";
 import { Header } from "./Header";
 
-export const RightPanel = () => {
+ const RightPanel = () => {
   const days = [0, 1, 2, 3, 4, 5, 6];
   
   return (
@@ -34,3 +34,5 @@ export const RightPanel = () => {
     </div>
   );
 };
+
+export default RightPanel;
