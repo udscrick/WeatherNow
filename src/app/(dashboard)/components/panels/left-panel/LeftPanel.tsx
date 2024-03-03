@@ -4,13 +4,12 @@ import SearchBar from "./SearchBar";
 import { LocationCard } from "./LocationCard";
 import { CurrentWeather } from "./CurrentWeather";
 
-// The component can accept props if you want to make it dynamic, for now, we'll use static content
 const LeftPanel: React.FC = () => {
     const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
     
 
   return (
-    <div className="bg-white h-screen min-h-full col-span-1 p-10">
+    <div className="bg-white h-screen min-h-full col-span-1 md:col-span-1 p-10">
       <SearchBar />
       <div>
 

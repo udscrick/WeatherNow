@@ -17,8 +17,8 @@ export const Header = () => {
         dispatch(toggleTemperatureUnit())
     }
   return (
-    <div className="flex items-center justify-between px-4 py-2 ">
-        <div className="flex space-x-4">
+    <div className="flex items-center justify-between px-4 py-2 mb-8">
+        <div className="flex space-x-4 opacity-0 invisible">
           <button className="font-bold text-gray-700">Today</button>
           <button className="font-bold text-gray-400 underline decoration-black decoration-2 underline-offset-8">
             Week
@@ -26,9 +26,9 @@ export const Header = () => {
         </div>
 
         <div className="flex gap-x-4">
-          <div className="flex items-center space-x-4">
-            <button className={`font-bold ${temperatureUnit === 'C' ? 'text-white bg-black rounded-full p-1' : 'text-black bg-transparent'}`} onClick={()=>handleTempToggleClick('C')}>°C</button>
-            <button className={`font-bold ${temperatureUnit === 'F' ? 'text-white bg-black rounded-full p-1' : 'text-black bg-transparent'}`} onClick={()=>handleTempToggleClick('F')}>
+          <div className="flex items-center space-x-4 mr-6">
+            <button className={`font-bold ${temperatureUnit === 'C' ? 'text-white bg-black rounded-full p-1 px-1.5' : 'text-black bg-transparent'}`} onClick={()=>handleTempToggleClick('C')}>°C</button>
+            <button className={`font-bold ${temperatureUnit === 'F' ? 'text-white bg-black rounded-full p-1 px-2' : 'text-black bg-transparent'}`} onClick={()=>handleTempToggleClick('F')}>
               °F
             </button>
           </div>
