@@ -1,13 +1,13 @@
 "use client"
 import { toggleTemperatureUnit } from '@/redux/features/weather/weatherSlice';
+import { useAppDispatch } from '@/redux/hooks';
 import Image from 'next/image'
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
 
 export const Header = () => {
     const [temperatureUnit, setTemperatureUnit] = useState('C');
-    const dispatch = useDispatch();
-    const handleTempToggleClick = (val) =>{
+    const dispatch = useAppDispatch();
+    const handleTempToggleClick = (val: string) =>{
         if(val == 'C'){
             setTemperatureUnit('C')
         }

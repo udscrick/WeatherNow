@@ -1,10 +1,10 @@
 "use client"
+import { useAppSelector } from '@/redux/hooks';
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 
-const WeatherStatsCard = ({ type }) => {
-  const weatherInfo = useSelector((state) => state.weather.data);
-  const aqi =  useSelector(state => state.aqi.aqi)
+const WeatherStatsCard = ({ type }:{type:string}) => {
+  const weatherInfo = useAppSelector((state) => state.weather.data);
+  const aqi =  useAppSelector(state => state.aqi.aqi)
   const [title, setTitle] = useState('');
   const [cardData, setCardData] = useState('');
   const [meterValue, setMeterValue] = useState(0); // Add state to keep track of meter value
@@ -33,7 +33,7 @@ const WeatherStatsCard = ({ type }) => {
         case 'aqi':
           setTitle('Air Quality');
           setCardData(`${aqi ?? "N/A"}`);
-          setMeterValue(aqi ?? 0);
+          setMeterValue(-1);
           break;
         case 'visibility':
           setTitle('Visibility');

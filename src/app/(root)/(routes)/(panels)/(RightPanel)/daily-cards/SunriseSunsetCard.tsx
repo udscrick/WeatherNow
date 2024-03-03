@@ -1,12 +1,12 @@
 "use client"
+import { useAppSelector } from '@/redux/hooks'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
 
 export const SunriseSunsetCard = () => {
     const [sunrise, setSunrise]  = useState('00:00')
     const [sunset, setSunset]  = useState('00:00')
-    const weatherInfo = useSelector((state)=>state.weather.data)
+    const weatherInfo = useAppSelector((state)=>state.weather.data)
 
     useEffect(()=>{
         if(weatherInfo){

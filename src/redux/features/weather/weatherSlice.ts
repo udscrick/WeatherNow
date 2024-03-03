@@ -1,4 +1,5 @@
 import { convertDate } from '@/app/utilities/convertUnixToDay';
+import { RootState } from '@/redux/store';
 import { Location } from '@/types/Location';
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 
@@ -23,7 +24,7 @@ const convertCelsiusToFahrenheit = (celsius: number) => (celsius * 9) / 5 + 32;
 const convertFahrenheitToCelsius = (fahrenheit:number) => (fahrenheit - 32) * 5 / 9;
 
 
-function convertTemperatures(data, targetUnit) {
+function convertTemperatures(data: any, targetUnit: string) {
   if (!data) return;
 
   const convertFn = targetUnit === 'F' ? convertCelsiusToFahrenheit : convertFahrenheitToCelsius;
@@ -35,14 +36,14 @@ function convertTemperatures(data, targetUnit) {
   }
 
   // Convert 'hourly' temperatures
-  data.hourly.forEach(hour =>{
+  data.hourly.forEach((hour: any) =>{
     hour.temp = convertFn(hour.temp)
     hour.feels_like = convertFn(hour.feels_like);
 
   });
 
   // Convert 'daily' temperatures
-  data.daily.forEach(day => {
+  data.daily.forEach((day:any) => {
     day.temp.day = convertFn(day.temp.day);
     day.temp.min = convertFn(day.temp.min);
     day.temp.max = convertFn(day.temp.max);
@@ -91,7 +92,7 @@ export const fetchWeather = createAsyncThunk('weather/fetchWeather', async (loca
     data.current.sunrise = convertDate(data.current.sunrise);
     data.current.sunset = convertDate(data.current.sunset);
     
-    const { temperatureUnit } = getState().weather;
+    const { temperatureUnit } = (getState() as RootState).weather;
     // If the current preference is Fahrenheit, convert the data before saving
     if (temperatureUnit === 'F') {
       data = convertTemperatures(data, 'F');
