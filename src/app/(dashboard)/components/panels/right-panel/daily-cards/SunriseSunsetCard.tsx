@@ -15,20 +15,20 @@ export const SunriseSunsetCard = () => {
         }
     },[weatherInfo])
   return (
-    <div className='flex flex-col items-start p-4 bg-white rounded-lg shadow-lg w-60 justify-start flex-shrink-0 gap-4'>
-        <h2>Sunrise & Sunset</h2>
+    <div className='flex flex-col items-start p-4 bg-white rounded-2xl shadow-lg w-60 justify-start flex-shrink-0 gap-4'>
+        <h2 className='text-base font-light text-gray-400'>Sunrise & Sunset</h2>
         <div className="flex gap-4">
             <Image src="/img/weather/sunrise.png" alt='sunrise' width={40} height={40}/>
             <div className="flex flex-col">
-                <p> {sunrise}</p>
-                <p>-1m 46s</p>
+                <p className='text-sm'> {sunrise}</p>
+                <p className='text-xs text-gray-300 font-normal'>-1m 46s</p>
             </div>
         </div>
         <div className="flex gap-4">
             <Image src="/img/weather/sunset.png" alt='sunrise' width={40} height={40}/>
             <div className="flex flex-col">
-                <p> {sunset}</p>
-                <p>-1m 46s</p>
+                <p className='text-sm'> {sunset}</p>
+                <p className='text-xs text-gray-300 font-normal'>-1m 46s</p>
             </div>
         </div>
     </div>

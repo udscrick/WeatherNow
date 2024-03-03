@@ -24,8 +24,8 @@ const UvIndexCard = () => {
     },[currentWeather])
   
     return (
-      <div className="flex flex-col items-center p-4 bg-white rounded-lg shadow-lg w-60 justify-center">
-        <h2 className="text-lg font-semibold w-full text-left">UV Index</h2>
+      <div className="flex flex-col items-center p-4 bg-white rounded-2xl shadow-lg w-60 justify-center">
+        <h2 className="text-base font-light text-gray-400 w-full text-left">UV Index</h2>
         <svg
           width={svgSize*1.5} // Set the width to the new SVG size
           height="120" // Set the height to half the new SVG size
@@ -59,13 +59,13 @@ const UvIndexCard = () => {
             {uvIndex}
           </text>
           {/* Adjust the x positions of the numbers to align with the ends of the arc */}
-          <text x={strokeWidth} y={radius + strokeWidth * 1.5} textAnchor="middle" fontSize="1em" fill="black" dx="-1em">
+          <text x={strokeWidth} y={radius + strokeWidth * 1.5} textAnchor="middle" fontSize="1em" fill="lightgray" dx="-1em">
             0
           </text>
-          <text x={svgSize / 2} y={radius + strokeWidth * 1.5} textAnchor="middle" fontSize="1em" fill="black" dy="-5.8em">
+          <text x={svgSize / 2} y={radius + strokeWidth * 1.5} textAnchor="middle" fontSize="1em" fill="lightgray" dy="-5.8em">
             {maxUvIndex / 2}
           </text>
-          <text x={svgSize - strokeWidth} y={radius + strokeWidth * 1.5} textAnchor="middle" fontSize="1em" fill="black" dx="0.9em">
+          <text x={svgSize - strokeWidth} y={radius + strokeWidth * 1.5} textAnchor="middle" fontSize="1em" fill="lightgray" dx="0.9em">
             {maxUvIndex}
           </text>
         </svg>

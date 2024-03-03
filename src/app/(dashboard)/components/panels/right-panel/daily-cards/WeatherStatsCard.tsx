@@ -11,7 +11,7 @@ const WeatherStatsCard = ({ type }:{type:string}) => {
 
   // SVG dimensions
   const width = 40;
-  const height = 130;
+  const height = 120;
   const barWidth = 30;
   const barHeight = height * 0.8;
   const barX = (width - barWidth) / 2;
@@ -53,10 +53,10 @@ const WeatherStatsCard = ({ type }:{type:string}) => {
   const circleY = barY + barHeight - fillHeight;
 
   return (
-    <div className="flex items-center p-4 bg-white rounded-lg shadow-lg w-60 justify-between flex-shrink-0">
+    <div className="flex items-center p-4 bg-white rounded-2xl shadow-lg w-60 justify-between flex-shrink-0">
       <div className='flex flex-col justify-between h-full'>
-        <h2 className="text-lg font-semibold">{title}</h2>
-        <div className="text-4xl font-bold">{cardData}</div>
+        <h2 className="text-base font-light text-gray-400">{title}</h2>
+        <div className="text-4xl font-normal">{cardData}</div>
         {/* <div className="text-sm">
           Normal <span role="img" aria-label="thumbs up">👍</span>
         </div> */}
@@ -68,12 +68,12 @@ const WeatherStatsCard = ({ type }:{type:string}) => {
             <rect
               x={barX}
               y={barY}
-              rx={circleRadius}
-              ry={circleRadius}
+              rx="20"
+              ry="20"
               width={barWidth}
               height={barHeight}
               fill="#fff"
-              stroke='gray'
+              stroke='lightgray'
               strokeWidth="1"
             />
             {/* Circle for the meter level */}
@@ -81,7 +81,7 @@ const WeatherStatsCard = ({ type }:{type:string}) => {
               cx={width / 2}
               cy={circleY}
               r={circleRadius}
-              fill="blue"
+              fill="royalblue"
             />
           </svg>
         </div>
