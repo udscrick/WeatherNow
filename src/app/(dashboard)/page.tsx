@@ -1,6 +1,6 @@
 import React from 'react'
-import LeftPanel from './(panels)/(LeftPanel)/page';
-import { RightPanel } from './(panels)/(RightPanel)/page';
+import LeftPanel from './components/panels/left-panel/LeftPanel';
+import RightPanel from './components/panels/right-panel/RightPanel';
 
 const HomePage = () => {
   return (
