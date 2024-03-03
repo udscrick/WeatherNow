@@ -33,7 +33,7 @@ interface AqiState {
 export const fetchAQI = createAsyncThunk('aqi/fetchAQI', async (location: Location) => {
     const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
 
-  const response = await fetch(`http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=${location.lat}&lon=${location.lon}&appid=${apiKey}`);
+  const response = await fetch(`https://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=${location.lat}&lon=${location.lon}&appid=${apiKey}`);
   const data = await response.json();
   let aqi
   if(data){
