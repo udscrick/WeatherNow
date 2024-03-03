@@ -1,10 +1,13 @@
-import React from 'react'
+import ReduxProvider from '@/redux/ReduxProvider'
+import React, { useState } from 'react'
 
 const WeatherContainer = ({children}:{
     children: React.ReactNode
 }) => {
   return (
-    <div>{children}</div>
+    <ReduxProvider>
+     {children}
+    </ReduxProvider>
   )
 }
 

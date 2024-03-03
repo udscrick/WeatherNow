@@ -1,12 +1,14 @@
 // src/components/CurrentWeather/CurrentWeather.tsx
 
-import React from "react";
+import React, { useEffect } from "react";
 import SearchBar from "./SearchBar";
 import Image from "next/image";
+import { LocationCard } from "./LocationCard";
 
 // The component can accept props if you want to make it dynamic, for now, we'll use static content
 const LeftPanel: React.FC = () => {
     const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
+    
 
   return (
     <div className="bg-white h-screen col-span-1 p-10">
@@ -34,11 +36,7 @@ const LeftPanel: React.FC = () => {
           <span className="ml-2 text-sm text-gray-700">Rain - 30%</span>
         </div>
       </div>
-      <div className="relative w-full h-32 rounded-lg overflow-hidden">
-        {/* <img src={cityImage} alt="New York City" className="object-cover w-full h-full" /> */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
-        <span className="absolute bottom-2 left-2 text-white text-sm">New York, NY, USA</span>
-      </div>
+        <LocationCard />
       </div>
     </div>
   );
