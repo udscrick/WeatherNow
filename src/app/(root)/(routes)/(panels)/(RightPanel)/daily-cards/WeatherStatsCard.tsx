@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 
 const WeatherStatsCard = ({ type }) => {
   const weatherInfo = useSelector((state) => state.weather.data);
+  const aqi =  useSelector(state => state.aqi.aqi)
   const [title, setTitle] = useState('');
   const [cardData, setCardData] = useState('');
   const [meterValue, setMeterValue] = useState(0); // Add state to keep track of meter value
@@ -31,11 +32,12 @@ const WeatherStatsCard = ({ type }) => {
           break;
         case 'aqi':
           setTitle('Air Quality');
-          setCardData(`${weatherInfo.current?.aqi ?? "N/A"}`);
-          setMeterValue(weatherInfo.current?.aqi ?? 0);
+          setCardData(`${aqi ?? "N/A"}`);
+          setMeterValue(aqi ?? 0);
           break;
         case 'visibility':
           setTitle('Visibility');
+          
           setCardData(`${(weatherInfo.current?.visibility/1000) ?? "N/A"} km`);
           setMeterValue(weatherInfo.current?.aqi ?? 0);
           break;
@@ -59,7 +61,7 @@ const WeatherStatsCard = ({ type }) => {
           Normal <span role="img" aria-label="thumbs up">👍</span>
         </div>
       </div>
-      {(type === 'humidity' || type === 'aqi') && (
+      {(type === 'humidity' ) && (
         <div>
           <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
             {/* Rounded rectangle for the bar */}

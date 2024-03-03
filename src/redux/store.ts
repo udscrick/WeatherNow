@@ -3,12 +3,14 @@ import { configureStore } from '@reduxjs/toolkit';
 import weatherReducer from './features/weather/weatherSlice';
 import locationReducer from './features/location/locationSlice';
 import imageReducer from './features/image/imageSlice';
+import aqiReducer from './features/aqi/aqiSlice';
 import { weatherMiddleware } from './middlewares/weatherMiddleware';
 
 export const store = configureStore({
   reducer: {
     weather: weatherReducer,
     location: locationReducer,
+    aqi: aqiReducer,
     image: imageReducer
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(weatherMiddleware)

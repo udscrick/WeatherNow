@@ -4,6 +4,7 @@ import { SetSelectedLocationAction } from "@/types/actions/LocationActions";
 import { fetchWeather } from "../features/weather/weatherSlice";
 import { Location } from "@/types/Location";
 import { fetchImage } from "../features/image/imageSlice";
+import { fetchAQI } from "../features/aqi/aqiSlice";
 
 // Define a type guard
 function isSetSelectedLocationAction(action: any): action is SetSelectedLocationAction {
@@ -16,6 +17,7 @@ export const weatherMiddleware:  Middleware<{}, RootState, AppDispatch> = (api: 
     const locationPayload: Location = action.payload;
     api.dispatch(fetchWeather(locationPayload));
     api.dispatch(fetchImage(locationPayload));
+    api.dispatch(fetchAQI(locationPayload));
   }
     return next(action);
   };

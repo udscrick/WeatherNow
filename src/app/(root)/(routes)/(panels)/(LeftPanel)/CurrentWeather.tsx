@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 
 export const CurrentWeather = () => {
     const weather = useSelector((state)=>state.weather.data)
+    const tempUnit = useSelector((state)=>state.weather.temperatureUnit)
 
   return (
    
@@ -18,7 +19,7 @@ export const CurrentWeather = () => {
         </div>
   <div className="flex flex-col items-start justify-center gap-7 mt-10">
           <p className="text-7xl font-sans font-light text-black">
-            {Math.round(weather?.current?.temp)}<span className="text-3xl align-top">°C</span>
+            {Math.round(weather?.current?.temp)}<span className="text-3xl align-top">°{tempUnit}</span>
           </p>
           <p className="text-xl text-black">{weather?.current?.dt.split(' ').join(', ')}</p>
         </div>
