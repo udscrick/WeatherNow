@@ -12,7 +12,7 @@ const initialState: LocationState = {
 
 export const fetchLocation = createAsyncThunk('location/fetchlocation',async(searchQuery:string,{dispatch})=>{
   const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
-  const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?limit=6&q=${searchQuery}&appid=${apiKey}`);
+  const response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?limit=6&q=${searchQuery}&appid=${apiKey}`);
   const data = await response.json();
   return data; 
 })
