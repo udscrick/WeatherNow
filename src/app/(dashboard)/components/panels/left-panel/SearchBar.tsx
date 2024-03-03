@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { fetchLocation, setSelectedLocation } from "@/redux/features/location/locationSlice";
+import { fetchLocation, fetchLocationFromLatLong, setSelectedLocation } from "@/redux/features/location/locationSlice";
 import { Location } from "@/types/Location";
 import { useAppDispatch } from "@/redux/hooks";
+import { setLoading } from "@/redux/features/loading/loadingSlice";
 
 // src/components/common/SearchBar.jsx
 
@@ -24,6 +25,21 @@ const SearchBar = () => {
       
         
     }
+    const getCurrentLocation = () =>{
+        if (navigator.geolocation) {
+            dispatch(setLoading(true))
+            navigator.geolocation.getCurrentPosition((position) => {
+                dispatch(fetchLocationFromLatLong({lat: position.coords.latitude,lon:position.coords.longitude}))
+                dispatch(setLoading(false))
+            }, (error) => {
+              console.error("Error Code = " + error.code + " - " + error.message);
+              dispatch(setLoading(false))
+            });
+          }
+    }
+    useEffect(()=>{
+        getCurrentLocation()
+    },[])
      
     const handleLocationSelect = (location: Location) =>{
         setShowResults(false);
@@ -50,7 +66,7 @@ const SearchBar = () => {
         <input type="search" id="default-search" defaultValue={searchedLocation} onInputCapture={handleInput} className="block w-full p-4 ps-10 text-sm text-gray-900 bg-transparent rounded-lg  focus:ring-blue-500  dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 " placeholder="Search for places..." required />
        
     </div>
-    <div className="bg-gray-200 p-1.5 rounded-full box-border">
+    <div className="bg-gray-200 p-1.5 rounded-full box-border cursor-pointer" onClick={getCurrentLocation}>
           <Image src="icons/gps.svg" alt="gps" width={20} height={20}/>
         </div>
         </div>
