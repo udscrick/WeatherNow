@@ -14,7 +14,7 @@ export const CurrentWeather = () => {
     (
    <div>
             <div className="mt-14 mr-6 ml-6 flex items-center justify-center">
-          <Image alt='rainy_day' src="/img/weather/rainyday.png" width={200} height={200}/>
+          <Image alt='rainy_day' src={`https://openweathermap.org/img/wn/${weather?.current?.weather[0]?.icon}@4x.png`} width={200} height={200}/>
         </div>
   <div className="flex flex-col items-start justify-center gap-7 mt-10">
           <p className="text-7xl font-sans font-light text-black">
@@ -25,7 +25,7 @@ export const CurrentWeather = () => {
         <hr className="w-full border-t border-gray-300 my-8" />
         <div className="w-full">
         <div className="flex items-center justify-start">
-          <Image alt="cloud" src="/img/weather/cloudy_icon.png" height={18} width={18}/>
+          <Image alt="cloud" src={`https://openweathermap.org/img/wn/${weather?.current?.weather[0]?.icon}.png`} height={40} width={40} style={{marginLeft: '-0.6em'}}/>
           <span className="ml-2 text-sm text-gray-700 capitalize">{weather?.current?.weather[0]?.description}</span>
         </div>
         <div className="flex items-start justify-start my-4">

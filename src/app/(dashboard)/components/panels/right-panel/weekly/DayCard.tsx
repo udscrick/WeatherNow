@@ -26,7 +26,7 @@ useEffect(()=>{
         <div>
           {day}
         </div>
-        <Image src={'/img/weather/sunny.png'} alt='sunny' width={40} height={40} />
+        <Image src={`https://openweathermap.org/img/wn/${weatherInfo?.daily[dayIndex]?.weather[0]?.icon}.png`} alt='sunny' width={40} height={40} />
         <div>
           <div>
           <span className=" ont-sans font-light text-black">
