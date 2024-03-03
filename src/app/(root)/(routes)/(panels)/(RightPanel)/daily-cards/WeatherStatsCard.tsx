@@ -57,9 +57,9 @@ const WeatherStatsCard = ({ type }) => {
       <div className='flex flex-col justify-between h-full'>
         <h2 className="text-lg font-semibold">{title}</h2>
         <div className="text-4xl font-bold">{cardData}</div>
-        <div className="text-sm">
+        {/* <div className="text-sm">
           Normal <span role="img" aria-label="thumbs up">👍</span>
-        </div>
+        </div> */}
       </div>
       {(type === 'humidity' ) && (
         <div>
