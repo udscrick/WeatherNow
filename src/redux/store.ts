@@ -4,6 +4,7 @@ import weatherReducer from './features/weather/weatherSlice';
 import locationReducer from './features/location/locationSlice';
 import imageReducer from './features/image/imageSlice';
 import aqiReducer from './features/aqi/aqiSlice';
+import loadingReducer from './features/loading/loadingSlice';
 import { weatherMiddleware } from './middlewares/weatherMiddleware';
 
 export const store = configureStore({
@@ -11,7 +12,8 @@ export const store = configureStore({
     weather: weatherReducer,
     location: locationReducer,
     aqi: aqiReducer,
-    image: imageReducer
+    image: imageReducer,
+    loading: loadingReducer
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(weatherMiddleware)
 });

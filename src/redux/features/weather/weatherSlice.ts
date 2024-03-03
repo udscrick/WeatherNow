@@ -2,6 +2,7 @@ import { convertDate } from '@/app/utilities/convertUnixToDay';
 import { RootState } from '@/redux/store';
 import { Location } from '@/types/Location';
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import { setLoading } from '../loading/loadingSlice';
 
 
 interface WeatherState {
@@ -59,11 +60,12 @@ function convertTemperatures(data: any, targetUnit: string) {
   return data;
 }
 
-export const fetchWeather = createAsyncThunk('weather/fetchWeather', async (location: Location,{getState}) => {
+export const fetchWeather = createAsyncThunk('weather/fetchWeather', async (location: Location,{getState,dispatch}) => {
   const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
+  dispatch(setLoading(true))
   const response = await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${location.lat}&lon=${location.lon}&appid=${apiKey}`);
   const data = await response.json();
-
+  dispatch(setLoading(false))
   // Convert temperatures from Kelvin to Celsius as soon as data is fetched
   const convertTemperaturesToCelsius = (data: any) => {
     if (data.current) {
