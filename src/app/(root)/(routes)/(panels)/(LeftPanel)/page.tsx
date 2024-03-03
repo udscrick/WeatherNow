@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import SearchBar from "./SearchBar";
 import Image from "next/image";
 import { LocationCard } from "./LocationCard";
+import { CurrentWeather } from "./CurrentWeather";
 
 // The component can accept props if you want to make it dynamic, for now, we'll use static content
 const LeftPanel: React.FC = () => {
@@ -14,28 +15,8 @@ const LeftPanel: React.FC = () => {
     <div className="bg-white h-screen col-span-1 p-10">
       <SearchBar />
       <div>
-        <div className="mt-14 mr-6 ml-6 flex items-center justify-center">
-          <Image alt='rainy_day' src="/img/weather/rainyday.png" width={200} height={200}/>
-        </div>
-        <div className="flex flex-col items-start justify-center gap-7 mt-10">
-          <p className="text-7xl font-sans font-light text-black">
-            12<span className="text-3xl align-top">°C</span>
-          </p>
-          <p className="text-xl text-black">Monday, 16:00</p>
-        </div>
-        <hr className="w-full border-t border-gray-300 my-8" />
-        <div className="w-full">
-        <div className="flex items-center justify-start">
-          {/* Replace with your cloud icon SVG */}
-          <Image alt="cloud" src="/img/weather/cloudy_icon.png" height={18} width={18}/>
-          <span className="ml-2 text-sm text-gray-700">Mostly Cloudy</span>
-        </div>
-        <div className="flex items-start justify-start my-4">
-          {/* Replace with your rain icon SVG */}
-          <Image alt="rainy" src="/img/weather/rainy_icon.png" height={18} width={18}/>
-          <span className="ml-2 text-sm text-gray-700">Rain - 30%</span>
-        </div>
-      </div>
+
+        <CurrentWeather/>
         <LocationCard />
       </div>
     </div>

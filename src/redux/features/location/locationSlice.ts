@@ -14,7 +14,6 @@ export const fetchLocation = createAsyncThunk('location/fetchlocation',async(sea
   const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
   const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?limit=6&q=${searchQuery}&appid=${apiKey}`);
   const data = await response.json();
-  console.log("Location Response: ", data);
   return data; 
 })
 export const locationSlice = createSlice({
@@ -22,8 +21,6 @@ export const locationSlice = createSlice({
   initialState,
   reducers: {
     setSelectedLocation: (state, action: PayloadAction<Location | null>) => {
-      console.log("State: ", state)
-      console.log("action: ",action)
       state.selectedLocation = action.payload;
     },
     // Any other location-related reducers can go here

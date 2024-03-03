@@ -12,5 +12,3 @@ export interface SetSelectedLocationAction {
   payload: Location;
 }
 
-// Type for actions handled by the middleware
-type MyAction = SetSelectedLocationAction; // Extend this union type if there are more actions to handle

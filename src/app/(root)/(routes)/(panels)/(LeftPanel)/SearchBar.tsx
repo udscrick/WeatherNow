@@ -17,15 +17,16 @@ const SearchBar = () => {
 
     const handleInput = async(e) => {
         const response = await dispatch(fetchLocation(e.target.value))
-        console.log("Response Loc!", response.payload)
-        setSearchedLocation(e.target.value); 
-        setShowResults(true);
-        setData(response.payload);
+        if(response.payload){
+            setSearchedLocation(e.target.value); 
+            setShowResults(true);
+            setData(response.payload);
+        }
+      
         
     }
      
     const handleLocationSelect = (location: Location) =>{
-        console.log("Location: ",location);
         setShowResults(false);
         if(location){
             setSearchedLocation(location.name)
