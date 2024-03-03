@@ -6,9 +6,7 @@ import { useSelector } from 'react-redux'
 
 export const CurrentWeather = () => {
     const weather = useSelector((state)=>state.weather.data)
-    useEffect(()=>{
-        console.log("Weather: ",weather)
-    },[weather])
+
   return (
    
     <>
@@ -32,7 +30,7 @@ export const CurrentWeather = () => {
         </div>
         <div className="flex items-start justify-start my-4">
           <Image alt="rainy" src="/img/weather/rainy_icon.png" height={18} width={18}/>
-          <span className="ml-2 text-sm text-gray-700">Rain - {Math.round(weather?.daily[0]?.rain*100)}%</span>
+          <span className="ml-2 text-sm text-gray-700">Rain - {Math.round(weather?.daily[0]?.rain*100)| 0}%</span>
         </div>
       </div>
       </div>)

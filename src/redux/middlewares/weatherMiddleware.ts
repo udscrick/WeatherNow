@@ -11,7 +11,6 @@ function isSetSelectedLocationAction(action: any): action is SetSelectedLocation
 }
 export const weatherMiddleware:  Middleware<{}, RootState, AppDispatch> = (api: MiddlewareAPI<AppDispatch, RootState>) => next => action => {
   if (isSetSelectedLocationAction(action)) {
-    console.log("Correct Action!!")
     // Now TypeScript knows `action` is `SetSelectedLocationAction`
     // const selectedLocationAction = action as SetSelectedLocationAction;
     const locationPayload: Location = action.payload;

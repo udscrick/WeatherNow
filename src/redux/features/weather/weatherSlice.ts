@@ -18,7 +18,7 @@ function convertKelvinToCelsius(kelvin:number) {
   return kelvin - 273.15;
 }
 
-function convertDate(unixTimestamp:number,timezoneOffset:number){
+function convertDate(unixTimestamp:number){
   // Example Unix timestamp and timezone offset from the API response
 
 // Convert Unix timestamp to milliseconds (JavaScript Date uses milliseconds)
@@ -40,7 +40,6 @@ const options: Intl.DateTimeFormatOptions = {
 // Use Intl.DateTimeFormat for a formatted string based on the user's locale and options for displaying date and time parts
 const formattedDate: string = new Intl.DateTimeFormat('en-US', options).format(localDate);
 
-console.log(formattedDate); // Prints the local date, time, and day of the week in a readable format
 
 return formattedDate
 }
@@ -74,8 +73,10 @@ export const fetchWeather = createAsyncThunk('weather/fetchWeather', async (loca
     day.feels_like.eve = convertKelvinToCelsius(day.feels_like.eve);
     day.feels_like.morn = convertKelvinToCelsius(day.feels_like.morn);
   });
-  data.current.dt = convertDate(data.current.dt,data.timezone_offset);
-
+  data.current.dt = convertDate(data.current.dt);
+  data.current.sunrise = convertDate(data.current.sunrise);
+  data.current.sunset = convertDate(data.current.sunset);
+console.log("Current Weather: ",data)
   return data;
 });
 
