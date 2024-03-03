@@ -12,7 +12,7 @@ const LeftPanel: React.FC = () => {
     
 
   return (
-    <div className="bg-white h-screen col-span-1 p-10">
+    <div className="bg-white h-screen min-h-full col-span-1 p-10">
       <SearchBar />
       <div>
 

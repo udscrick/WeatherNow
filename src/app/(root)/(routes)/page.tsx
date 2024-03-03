@@ -4,7 +4,7 @@ import { RightPanel } from './(panels)/(RightPanel)/page';
 
 const HomePage = () => {
   return (
-    <div >
+    <div className='min-h-full min-w-full'>
       <div className="grid grid-rows-1 grid-cols-4 ">
         <LeftPanel></LeftPanel>
         <RightPanel></RightPanel>
