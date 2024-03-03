@@ -1,5 +1,3 @@
-// components/Loader.js
-
 const Loader = () => (
     <div style={{
       position: 'fixed', 
@@ -11,7 +9,7 @@ const Loader = () => (
       display: 'flex', 
       justifyContent: 'center', 
       alignItems: 'center', 
-      zIndex: 1000 // Ensure it's above everything
+      zIndex: 1000 
     }}>
       <div>Loading...</div> {/* Replace with your loader/spinner */}
     </div>

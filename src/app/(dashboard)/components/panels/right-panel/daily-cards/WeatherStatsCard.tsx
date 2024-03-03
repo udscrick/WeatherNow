@@ -7,9 +7,8 @@ const WeatherStatsCard = ({ type }:{type:string}) => {
   const aqi =  useAppSelector(state => state.aqi.aqi)
   const [title, setTitle] = useState('');
   const [cardData, setCardData] = useState('');
-  const [meterValue, setMeterValue] = useState(0); // Add state to keep track of meter value
+  const [meterValue, setMeterValue] = useState(0);  
 
-  // SVG dimensions
   const width = 40;
   const height = 120;
   const barWidth = 30;
@@ -48,7 +47,6 @@ const WeatherStatsCard = ({ type }:{type:string}) => {
     }
   }, [weatherInfo, type]);
 
-  // Calculate the fill height for the meter based on the meter value
   const fillHeight = (meterValue / 100) * barHeight;
   const circleY = barY + barHeight - fillHeight;
 

@@ -32,11 +32,8 @@ export const locationSlice = createSlice({
     setSelectedLocation: (state, action: PayloadAction<Location | null>) => {
       state.selectedLocation = action.payload;
     },
-    // Any other location-related reducers can go here
   },
-  // Include async thunks if necessary
 });
 
-// Export the action(s) and reducer
 export const { setSelectedLocation } = locationSlice.actions;
 export default locationSlice.reducer;

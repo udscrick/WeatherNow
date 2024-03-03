@@ -15,7 +15,7 @@ const HomePage = () => {
     <div className='min-h-full min-w-full'>
       {isLoading&&<Loader/>}
       
-      <div className="grid grid-rows-1 grid-cols-4 ">
+      <div className="grid grid-cols-1 md:grid-cols-4 ">
         <LeftPanel></LeftPanel>
         <RightPanel></RightPanel>
       </div>

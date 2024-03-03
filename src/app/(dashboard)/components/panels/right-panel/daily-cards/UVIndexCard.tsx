@@ -3,14 +3,12 @@ import { useAppSelector } from "@/redux/hooks";
 import { useEffect, useState } from "react";
 
 const UvIndexCard = () => {
-    // Increase the radius for a larger gauge
     const radius = 60; // New larger radius for the gauge
     const strokeWidth = 20; // Thicker stroke for the larger gauge
     const svgSize = radius * 2 + strokeWidth * 2; // SVG size to fit the whole gauge
     const[uvIndex, setUvIndex] = useState(0);
     const maxUvIndex = 12;
   
-    // Calculate the circumference of the arc
     const circumference = radius * Math.PI;
     const offset = ((maxUvIndex - uvIndex) / maxUvIndex) * circumference;
 
@@ -27,8 +25,8 @@ const UvIndexCard = () => {
       <div className="flex flex-col items-center p-4 bg-white rounded-2xl shadow-lg w-60 justify-center">
         <h2 className="text-base font-light text-gray-400 w-full text-left">UV Index</h2>
         <svg
-          width={svgSize*1.5} // Set the width to the new SVG size
-          height="120" // Set the height to half the new SVG size
+          width={svgSize*1.5} 
+          height="120" 
           viewBox={`0 -20 ${svgSize} 120`}
         >
           <path

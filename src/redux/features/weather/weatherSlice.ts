@@ -6,7 +6,7 @@ import { setLoading } from '../loading/loadingSlice';
 
 
 interface WeatherState {
-  data: any; // Use a more specific type for your data structure
+  data: any; 
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;
   temperatureUnit: 'C' | 'F';
@@ -19,7 +19,6 @@ const initialState: WeatherState = {
   temperatureUnit: 'C',
 };
 
-// Conversion utility functions
 const convertKelvinToCelsius = (kelvin: number) => kelvin - 273.15;
 const convertCelsiusToFahrenheit = (celsius: number) => (celsius * 9) / 5 + 32;
 const convertFahrenheitToCelsius = (fahrenheit:number) => (fahrenheit - 32) * 5 / 9;
@@ -30,7 +29,6 @@ function convertTemperatures(data: any, targetUnit: string) {
 
   const convertFn = targetUnit === 'F' ? convertCelsiusToFahrenheit : convertFahrenheitToCelsius;
 
-  // Convert 'current' temperatures
   if (data.current) {
     data.current.temp = convertFn(data.current.temp);
     data.current.feels_like = convertFn(data.current.feels_like);
