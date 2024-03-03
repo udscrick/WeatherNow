@@ -90,7 +90,8 @@ export const fetchWeather = createAsyncThunk('weather/fetchWeather', async (loca
       day.feels_like.eve = convertKelvinToCelsius(day.feels_like.eve);
       day.feels_like.morn = convertKelvinToCelsius(day.feels_like.morn);
     });
-    data.current.dt = convertDate(data.current.dt);
+    data.current.dt = convertDate(data.current.dt,data.timezone_offset);
+    console.log("Datee: ",data.current.dt);
     data.current.sunrise = convertDate(data.current.sunrise);
     data.current.sunset = convertDate(data.current.sunset);
     
