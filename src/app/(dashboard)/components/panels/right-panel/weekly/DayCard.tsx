@@ -23,16 +23,18 @@ useEffect(()=>{
   return (
     
     <div className='bg-white px-6 py-4 rounded-lg shadow flex-shrink-0'>
-        <div>
+        <div className='text-xs text-center'>
           {day}
         </div>
+        <div className='flex justify-center'>
         <Image src={`https://openweathermap.org/img/wn/${weatherInfo?.daily[dayIndex]?.weather[0]?.icon}.png`} alt='sunny' width={40} height={40} />
+        </div>
         <div>
-          <div>
-          <span className=" ont-sans font-light text-black">
+          <div className='flex justify-center'>
+          <span className="text-xs font-sans font-light text-black">
             {high}<span className="align-top">°</span>
           </span>
-          <span className=" ont-sans font-light text-black">
+          <span className="text-xs text-gray-400 font-sans font-light text-black">
             {low}<span className="align-top">°</span>
           </span>
           </div>

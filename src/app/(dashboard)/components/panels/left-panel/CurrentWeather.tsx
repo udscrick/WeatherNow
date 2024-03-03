@@ -20,7 +20,10 @@ export const CurrentWeather = () => {
           <p className="text-7xl font-sans font-light text-black">
             {Math.round(weather?.current?.temp)}<span className="text-3xl align-top">°{tempUnit}</span>
           </p>
-          <p className="text-xl text-black">{weather?.current?.dt.split(' ').join(', ')}</p>
+          <p className="text-lg text-black">
+            {weather?.current?.dt.split(' ')[0]},
+            <span className='text-gray-400 font-light'> {weather?.current?.dt.split(' ')[1]}</span>
+            </p>
         </div>
         <hr className="w-full border-t border-gray-300 my-8" />
         <div className="w-full">
